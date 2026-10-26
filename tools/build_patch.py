@@ -53,7 +53,8 @@ def main():
         patches.append(dict(address=hex(a),before=before.hex(),after=data.hex(),description=description))
     def hook(a,name,link=False):
         dst=syms[name]&~1;data=branch(a,dst,link)
-        ins=list(Cs(CS_ARCH_ARM,CS_MODE_THUMB).disasm(data,a));assert len(ins)==1 and int(ins[0].op_str,16)==dst
+        decoder=Cs(CS_ARCH_ARM,CS_MODE_THUMB);decoder.detail=True
+        ins=list(decoder.disasm(data,a));assert len(ins)==1 and ins[0].operands[0].imm==dst
         change(a,data,('BL ' if link else 'B.W ')+name)
     hook(0x80349c4,'patch_init')
     hook(0x803702a,'patch_connect')
