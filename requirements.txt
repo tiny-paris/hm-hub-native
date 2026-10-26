@@ -1,0 +1,6 @@
+# Host playback, firmware tooling and local emulation.
+pyserial
+pyelftools
+capstone
+unicorn
+Pillow

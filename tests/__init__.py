@@ -1,0 +1,1 @@
+"""HM Hub tests components."""

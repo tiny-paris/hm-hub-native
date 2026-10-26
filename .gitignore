@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+/build/
+/vendor/
+/backups/
+/records/
+/archive/
+/assets/
+/releases/
+*.db
+*.bin
+*.elf
+*.o
+.env
+.env.*
